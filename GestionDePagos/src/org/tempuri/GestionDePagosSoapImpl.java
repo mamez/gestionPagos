@@ -20,7 +20,12 @@ public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
 	 private static final Logger log = LogManager.getLogger(GestionDePagosSoapImpl.class.getName());
 	 
     public org.tempuri.InformacionFideicomisos[] getInformacionFideicomisos(java.lang.String fideicomiso) throws java.rmi.RemoteException {
-        return null;
+       try {
+		return new ConceptosPorPago().getInformacionFideicomisos(fideicomiso);
+	} catch (GestionPagosException e) {
+		throw new RemoteException(e.getMessage());
+	}
+    
     }
 
     public java.lang.String setAplicaPagos(java.lang.String fideicomiso, java.lang.String operacion, java.lang.String identificacion, java.lang.String instruccion, java.lang.String accion, java.lang.String usuario, java.lang.String gmf, java.lang.String causalRechazo) throws java.rmi.RemoteException {

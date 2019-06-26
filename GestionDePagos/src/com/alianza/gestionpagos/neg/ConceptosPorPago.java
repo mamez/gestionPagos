@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.tempuri.Conceptos;
 import org.tempuri.GestionDePagosSoapImpl;
 import org.tempuri.InformacionCuentas;
+import org.tempuri.InformacionFideicomisos;
 import org.tempuri.InformacionPagosSIFI;
 
 import com.alianza.gestionpagos.exception.GestionPagosException;
@@ -115,6 +116,33 @@ public class ConceptosPorPago {
 		 return list;
 	 }
 	 
+	 
+	 public org.tempuri.InformacionFideicomisos[] getInformacionFideicomisos(java.lang.String fideicomiso) throws GestionPagosException {
+		 InformacionFideicomisos ifc = new InformacionFideicomisos();
+		 try {
+			 ifc.setFideicomiso("123");
+			 ifc.setNombreFideicomiso("ACG");
+			 ifc.setEncargo("1231");
+			 ifc.setSaldoEncargo("400000");
+			 ifc.setEstadoEncargo("N");
+			 ifc.setNombreNegocioGrifus("AMC");
+			 ifc.setUsuarioDirectorGestion("Daniel Manrique");
+			 ifc.setDirectorGestion("SI");
+			 ifc.setAsistenteGestion("Dora");
+			 ifc.setSaldoTotal("100000000");
+			 ifc.setSaldoCanje("104440");
+			 ifc.setCtrlCancelacion("G");
+			 ifc.setTotalReservado("GA");
+			 ifc.setTotalDisponible("10");
+			 
+			
+		} catch (Exception e) {
+			throw new GestionPagosException(e.getMessage());
+		}
+		 log.debug("Informacion de los fidecomisos correctamente");
+		 InformacionFideicomisos[] list = new InformacionFideicomisos[] {ifc};
+		 return null;
+	    }
 
 	 
 }
