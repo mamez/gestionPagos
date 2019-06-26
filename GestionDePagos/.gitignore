@@ -1,0 +1,9 @@
+/.apt_generated/
+.classpath
+.factorypath
+.jsdtscope
+.settings/*
+.project
+*.jar
+MANIFEST.MF
+*.class

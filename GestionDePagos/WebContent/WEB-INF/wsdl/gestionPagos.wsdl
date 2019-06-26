@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" targetNamespace="http://tempuri.org/">
+   <wsdl:types>
+      <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+         <s:element name="GetInformacionFideicomisos">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="fideicomiso" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="GetInformacionFideicomisosResponse">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="GetInformacionFideicomisosResult" type="tns:ArrayOfInformacionFideicomisos" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:complexType name="ArrayOfInformacionFideicomisos">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="unbounded" name="InformacionFideicomisos" nillable="true" type="tns:InformacionFideicomisos" />
+            </s:sequence>
+         </s:complexType>
+         <s:complexType name="InformacionFideicomisos">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="1" name="Fideicomiso" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="NombreFideicomiso" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Encargo" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="SaldoEncargo" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="EstadoEncargo" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="NombreNegocioGrifus" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="UsuarioDirectorGestion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="DirectorGestion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="UsuarioAsistenteGestion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="AsistenteGestion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="SaldoTotal" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="SaldoCanje" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="CtrlCancelacion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="TotalReservado" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="TotalDisponible" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+            </s:sequence>
+         </s:complexType>
+         <s:element name="SetAplicaPagos">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="Fideicomiso" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Operacion" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Identificacion" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Instruccion" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Accion" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Gmf" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CausalRechazo" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="SetAplicaPagosResponse">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="SetAplicaPagosResult" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="GetInformacionPagos">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="numeroCasoBizagi" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="GetInformacionPagosResponse">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="GetInformacionPagosResult" type="tns:ArrayOfInformacionPagosSIFI" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:complexType name="ArrayOfInformacionPagosSIFI">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="unbounded" name="InformacionPagosSIFI" nillable="true" type="tns:InformacionPagosSIFI" />
+            </s:sequence>
+         </s:complexType>
+         <s:complexType name="InformacionPagosSIFI">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="1" name="Tipo_cuenta_origen" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Banco_origen" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Encargo" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_cuenta_origen" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_fideicomiso" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Nombre_fideicomiso" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Valor_orden_giro" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_identificacion_causacion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Nombre_tercero" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Descri_pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Descripcion_concepto" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Concepto" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Valor_neto" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Tipo_pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Estado_pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Tipo_cuenta_desti" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Banco_desti" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_cuenta_desti" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Encargo_destino" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_identificacion_giro" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Nombre_tercero_giro" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Gmf" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Orden_pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Num_instruccion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Descri_instruccion_pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Numero_operacion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="GmfSugerido" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="ConceptoPago" type="tns:ArrayOfConceptos" />
+            </s:sequence>
+         </s:complexType>
+         <s:complexType name="ArrayOfConceptos">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="unbounded" name="Conceptos" nillable="true" type="tns:Conceptos" />
+            </s:sequence>
+         </s:complexType>
+         <s:complexType name="Conceptos">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="1" name="codigo_Pago" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Concepto" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Base" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+            </s:sequence>
+         </s:complexType>
+         <s:element name="GetInformacionCuentas">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="p_fideicomiso" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="GetInformacionCuentasResponse">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="GetInformacionCuentasResult" type="tns:ArrayOfInformacionCuentas" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:complexType name="ArrayOfInformacionCuentas">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="unbounded" name="InformacionCuentas" nillable="true" type="tns:InformacionCuentas" />
+            </s:sequence>
+         </s:complexType>
+         <s:complexType name="InformacionCuentas">
+            <s:sequence>
+               <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Sucursal" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="ClaseCuenta" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="NumeroCuenta" type="s:string" />
+               <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+            </s:sequence>
+         </s:complexType>
+         <s:element name="GetConceptosPorPago">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="codigoCaso" type="s:string" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="GetConceptosPorPagoResponse">
+            <s:complexType>
+               <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="GetConceptosPorPagoResult" type="tns:ArrayOfConceptos" />
+               </s:sequence>
+            </s:complexType>
+         </s:element>
+         <s:element name="ArrayOfInformacionFideicomisos" nillable="true" type="tns:ArrayOfInformacionFideicomisos" />
+         <s:element name="string" nillable="true" type="s:string" />
+         <s:element name="ArrayOfInformacionPagosSIFI" nillable="true" type="tns:ArrayOfInformacionPagosSIFI" />
+         <s:element name="ArrayOfInformacionCuentas" nillable="true" type="tns:ArrayOfInformacionCuentas" />
+         <s:element name="ArrayOfConceptos" nillable="true" type="tns:ArrayOfConceptos" />
+      </s:schema>
+   </wsdl:types>
+   <wsdl:message name="GetInformacionFideicomisosSoapIn">
+      <wsdl:part name="parameters" element="tns:GetInformacionFideicomisos" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionFideicomisosSoapOut">
+      <wsdl:part name="parameters" element="tns:GetInformacionFideicomisosResponse" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosSoapIn">
+      <wsdl:part name="parameters" element="tns:SetAplicaPagos" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosSoapOut">
+      <wsdl:part name="parameters" element="tns:SetAplicaPagosResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosSoapIn">
+      <wsdl:part name="parameters" element="tns:GetInformacionPagos" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosSoapOut">
+      <wsdl:part name="parameters" element="tns:GetInformacionPagosResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasSoapIn">
+      <wsdl:part name="parameters" element="tns:GetInformacionCuentas" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasSoapOut">
+      <wsdl:part name="parameters" element="tns:GetInformacionCuentasResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoSoapIn">
+      <wsdl:part name="parameters" element="tns:GetConceptosPorPago" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoSoapOut">
+      <wsdl:part name="parameters" element="tns:GetConceptosPorPagoResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionFideicomisosHttpGetIn">
+      <wsdl:part name="fideicomiso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionFideicomisosHttpGetOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionFideicomisos" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosHttpGetIn">
+      <wsdl:part name="Fideicomiso" type="s:string" />
+      <wsdl:part name="Operacion" type="s:string" />
+      <wsdl:part name="Identificacion" type="s:string" />
+      <wsdl:part name="Instruccion" type="s:string" />
+      <wsdl:part name="Accion" type="s:string" />
+      <wsdl:part name="Usuario" type="s:string" />
+      <wsdl:part name="Gmf" type="s:string" />
+      <wsdl:part name="CausalRechazo" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosHttpGetOut">
+      <wsdl:part name="Body" element="tns:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosHttpGetIn">
+      <wsdl:part name="numeroCasoBizagi" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosHttpGetOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionPagosSIFI" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasHttpGetIn">
+      <wsdl:part name="p_fideicomiso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasHttpGetOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionCuentas" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoHttpGetIn">
+      <wsdl:part name="codigoCaso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoHttpGetOut">
+      <wsdl:part name="Body" element="tns:ArrayOfConceptos" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionFideicomisosHttpPostIn">
+      <wsdl:part name="fideicomiso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionFideicomisosHttpPostOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionFideicomisos" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosHttpPostIn">
+      <wsdl:part name="Fideicomiso" type="s:string" />
+      <wsdl:part name="Operacion" type="s:string" />
+      <wsdl:part name="Identificacion" type="s:string" />
+      <wsdl:part name="Instruccion" type="s:string" />
+      <wsdl:part name="Accion" type="s:string" />
+      <wsdl:part name="Usuario" type="s:string" />
+      <wsdl:part name="Gmf" type="s:string" />
+      <wsdl:part name="CausalRechazo" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="SetAplicaPagosHttpPostOut">
+      <wsdl:part name="Body" element="tns:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosHttpPostIn">
+      <wsdl:part name="numeroCasoBizagi" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionPagosHttpPostOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionPagosSIFI" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasHttpPostIn">
+      <wsdl:part name="p_fideicomiso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetInformacionCuentasHttpPostOut">
+      <wsdl:part name="Body" element="tns:ArrayOfInformacionCuentas" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoHttpPostIn">
+      <wsdl:part name="codigoCaso" type="s:string" />
+   </wsdl:message>
+   <wsdl:message name="GetConceptosPorPagoHttpPostOut">
+      <wsdl:part name="Body" element="tns:ArrayOfConceptos" />
+   </wsdl:message>
+   <wsdl:portType name="GestionDePagosSoap">
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <wsdl:input message="tns:GetInformacionFideicomisosSoapIn" />
+         <wsdl:output message="tns:GetInformacionFideicomisosSoapOut" />
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <wsdl:input message="tns:SetAplicaPagosSoapIn" />
+         <wsdl:output message="tns:SetAplicaPagosSoapOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <wsdl:input message="tns:GetInformacionPagosSoapIn" />
+         <wsdl:output message="tns:GetInformacionPagosSoapOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <wsdl:input message="tns:GetInformacionCuentasSoapIn" />
+         <wsdl:output message="tns:GetInformacionCuentasSoapOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <wsdl:input message="tns:GetConceptosPorPagoSoapIn" />
+         <wsdl:output message="tns:GetConceptosPorPagoSoapOut" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:portType name="GestionDePagosHttpGet">
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <wsdl:input message="tns:GetInformacionFideicomisosHttpGetIn" />
+         <wsdl:output message="tns:GetInformacionFideicomisosHttpGetOut" />
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <wsdl:input message="tns:SetAplicaPagosHttpGetIn" />
+         <wsdl:output message="tns:SetAplicaPagosHttpGetOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <wsdl:input message="tns:GetInformacionPagosHttpGetIn" />
+         <wsdl:output message="tns:GetInformacionPagosHttpGetOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <wsdl:input message="tns:GetInformacionCuentasHttpGetIn" />
+         <wsdl:output message="tns:GetInformacionCuentasHttpGetOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <wsdl:input message="tns:GetConceptosPorPagoHttpGetIn" />
+         <wsdl:output message="tns:GetConceptosPorPagoHttpGetOut" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:portType name="GestionDePagosHttpPost">
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <wsdl:input message="tns:GetInformacionFideicomisosHttpPostIn" />
+         <wsdl:output message="tns:GetInformacionFideicomisosHttpPostOut" />
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <wsdl:input message="tns:SetAplicaPagosHttpPostIn" />
+         <wsdl:output message="tns:SetAplicaPagosHttpPostOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <wsdl:input message="tns:GetInformacionPagosHttpPostIn" />
+         <wsdl:output message="tns:GetInformacionPagosHttpPostOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <wsdl:input message="tns:GetInformacionCuentasHttpPostIn" />
+         <wsdl:output message="tns:GetInformacionCuentasHttpPostOut" />
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <wsdl:input message="tns:GetConceptosPorPagoHttpPostIn" />
+         <wsdl:output message="tns:GetConceptosPorPagoHttpPostOut" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="GestionDePagosSoap" type="tns:GestionDePagosSoap">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <soap:operation soapAction="http://tempuri.org/GetInformacionFideicomisos" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <soap:operation soapAction="http://tempuri.org/SetAplicaPagos" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <soap:operation soapAction="http://tempuri.org/GetInformacionPagos" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <soap:operation soapAction="http://tempuri.org/GetInformacionCuentas" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <soap:operation soapAction="http://tempuri.org/GetConceptosPorPago" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="GestionDePagosSoap12" type="tns:GestionDePagosSoap">
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <soap12:operation soapAction="http://tempuri.org/GetInformacionFideicomisos" style="document" />
+         <wsdl:input>
+            <soap12:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <soap12:operation soapAction="http://tempuri.org/SetAplicaPagos" style="document" />
+         <wsdl:input>
+            <soap12:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <soap12:operation soapAction="http://tempuri.org/GetInformacionPagos" style="document" />
+         <wsdl:input>
+            <soap12:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <soap12:operation soapAction="http://tempuri.org/GetInformacionCuentas" style="document" />
+         <wsdl:input>
+            <soap12:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <soap12:operation soapAction="http://tempuri.org/GetConceptosPorPago" style="document" />
+         <wsdl:input>
+            <soap12:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="GestionDePagosHttpGet" type="tns:GestionDePagosHttpGet">
+      <http:binding verb="GET" />
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <http:operation location="/GetInformacionFideicomisos" />
+         <wsdl:input>
+            <http:urlEncoded />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <http:operation location="/SetAplicaPagos" />
+         <wsdl:input>
+            <http:urlEncoded />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <http:operation location="/GetInformacionPagos" />
+         <wsdl:input>
+            <http:urlEncoded />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <http:operation location="/GetInformacionCuentas" />
+         <wsdl:input>
+            <http:urlEncoded />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <http:operation location="/GetConceptosPorPago" />
+         <wsdl:input>
+            <http:urlEncoded />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="GestionDePagosHttpPost" type="tns:GestionDePagosHttpPost">
+      <http:binding verb="POST" />
+      <wsdl:operation name="GetInformacionFideicomisos">
+         <http:operation location="/GetInformacionFideicomisos" />
+         <wsdl:input>
+            <mime:content type="application/x-www-form-urlencoded" />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="SetAplicaPagos">
+         <http:operation location="/SetAplicaPagos" />
+         <wsdl:input>
+            <mime:content type="application/x-www-form-urlencoded" />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionPagos">
+         <http:operation location="/GetInformacionPagos" />
+         <wsdl:input>
+            <mime:content type="application/x-www-form-urlencoded" />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetInformacionCuentas">
+         <http:operation location="/GetInformacionCuentas" />
+         <wsdl:input>
+            <mime:content type="application/x-www-form-urlencoded" />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetConceptosPorPago">
+         <http:operation location="/GetConceptosPorPago" />
+         <wsdl:input>
+            <mime:content type="application/x-www-form-urlencoded" />
+         </wsdl:input>
+         <wsdl:output>
+            <mime:mimeXml part="Body" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="GestionDePagos">
+      <wsdl:port name="GestionDePagosSoap" binding="tns:GestionDePagosSoap">
+         <soap:address location="http://localhost:52562/GestionDePagos.asmx" />
+      </wsdl:port>
+      <wsdl:port name="GestionDePagosSoap12" binding="tns:GestionDePagosSoap12">
+         <soap12:address location="http://localhost:52562/GestionDePagos.asmx" />
+      </wsdl:port>
+      <wsdl:port name="GestionDePagosHttpGet" binding="tns:GestionDePagosHttpGet">
+         <http:address location="http://localhost:52562/GestionDePagos.asmx" />
+      </wsdl:port>
+      <wsdl:port name="GestionDePagosHttpPost" binding="tns:GestionDePagosHttpPost">
+         <http:address location="http://localhost:52562/GestionDePagos.asmx" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
