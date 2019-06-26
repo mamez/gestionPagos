@@ -28,11 +28,19 @@ public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
     }
 
     public org.tempuri.InformacionPagosSIFI[] getInformacionPagos(java.lang.String numeroCasoBizagi) throws java.rmi.RemoteException {
-        return null;
+        try {
+			return new ConceptosPorPago().getInformacionPagos(numeroCasoBizagi);
+		} catch (GestionPagosException e) {
+			throw new RemoteException(e.getMessage());
+		}
     }
 
     public org.tempuri.InformacionCuentas[] getInformacionCuentas(java.lang.String p_fideicomiso) throws java.rmi.RemoteException {
-        return null;
+       try {
+		return new ConceptosPorPago().getInformacionCuentas(p_fideicomiso);
+	} catch (GestionPagosException e) {
+		throw new RemoteException(e.getMessage());
+	}
     }
 
     public org.tempuri.Conceptos[] getConceptosPorPago(java.lang.String codigoCaso) throws java.rmi.RemoteException {
