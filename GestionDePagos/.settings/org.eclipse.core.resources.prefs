@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/org/tempuri/Conceptos.java=UTF-8
+encoding//src/org/tempuri/GestionDePagos.java=UTF-8
+encoding//src/org/tempuri/GestionDePagosLocator.java=UTF-8
+encoding//src/org/tempuri/GestionDePagosSoap.java=UTF-8
+encoding//src/org/tempuri/GestionDePagosSoapImpl.java=UTF-8
+encoding//src/org/tempuri/GestionDePagosSoapSkeleton.java=UTF-8
+encoding//src/org/tempuri/GestionDePagosSoapStub.java=UTF-8
+encoding//src/org/tempuri/InformacionCuentas.java=UTF-8
+encoding//src/org/tempuri/InformacionFideicomisos.java=UTF-8
+encoding//src/org/tempuri/InformacionPagosSIFI.java=UTF-8
