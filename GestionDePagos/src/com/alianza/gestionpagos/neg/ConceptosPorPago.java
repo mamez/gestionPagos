@@ -141,7 +141,7 @@ public class ConceptosPorPago {
 		}
 		 log.debug("Informacion de los fidecomisos correctamente");
 		 InformacionFideicomisos[] list = new InformacionFideicomisos[] {ifc};
-		 return null;
+		 return list;
 	    }
 
 	 
