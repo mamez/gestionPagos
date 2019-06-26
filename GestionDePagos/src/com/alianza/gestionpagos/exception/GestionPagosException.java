@@ -15,5 +15,7 @@ public class GestionPagosException extends Exception {
 		log.error("Error controlado: "+msg);
 	}
 	
+	
+	
 
 }
