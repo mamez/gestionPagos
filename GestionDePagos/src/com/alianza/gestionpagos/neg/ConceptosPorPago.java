@@ -33,23 +33,23 @@ public class ConceptosPorPago {
 		 ResultSet rs=null;
 		 try {
 			 con= ConexionDirecta.getConexion(ConexionType.JDNI_PRUEBA);
-			 stmt = con.prepareCall("BEGIN prueba(?, ?); END;");
-			 stmt.setString(1,"BATCH");
+			 stmt = con.prepareCall("BEGIN BI_RETENCIONES_CASOBIZA(?, ?); END;");
+			 stmt.setString(1, codigoCaso);
 			 stmt.registerOutParameter(2, OracleTypes.CURSOR); 
 			 stmt.execute();
 			 rs = (ResultSet)stmt.getObject(2);
 			 listConceptos= new ArrayList<Conceptos>();
 			 while (rs.next()) {
 		    	 Conceptos c= new Conceptos();
-					String codigoComprobante=rs.getString("PAR_VALOR");
-					String descripcion=rs.getString("PAR_PARAMETRO");
-					   c.setCodigo_Pago("233");
-				       c.setTipo("Bases");
-				       c.setConcepto(codigoComprobante);
-				       c.setDescripcion(descripcion);
-				       c.setBase("23483127");
-				       c.setValor("23483127");
-				       listConceptos.add(c);
+					
+		    	 c.setCodigo_Pago(rs.getString(1));
+		    	 c.setTipo(rs.getString(2));
+		    	 c.setConcepto(rs.getString(3));	
+		    	 c.setDescripcion(rs.getString(4));
+		    	 c.setBase(rs.getString(5)); 
+		    	 c.setValor(rs.getString(6));
+                 c.setMensaje("");        
+				 listConceptos.add(c);
 		       }
 			 list= listConceptos.toArray(new Conceptos[listConceptos.size()]);
 		 }catch (SQLException e1) {
