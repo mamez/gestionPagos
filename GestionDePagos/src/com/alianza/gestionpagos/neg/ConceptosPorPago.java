@@ -1,5 +1,8 @@
 package com.alianza.gestionpagos.neg;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.tempuri.Conceptos;
@@ -8,17 +11,24 @@ import org.tempuri.InformacionCuentas;
 import org.tempuri.InformacionFideicomisos;
 import org.tempuri.InformacionPagosSIFI;
 
+import com.alianza.gestionpagos.config.BDConexiones;
 import com.alianza.gestionpagos.exception.GestionPagosException;
 
 public class ConceptosPorPago {
 
 	 private static final Logger log = LogManager.getLogger(GestionDePagosSoapImpl.class.getName());
 	 
+	 BDConexiones BD = new BDConexiones();
+	 
 	 public org.tempuri.Conceptos[] getConceptosPorPago(java.lang.String codigoCaso) throws GestionPagosException {
+		 
+		 List<Conceptos> listaConceptos = new ArrayList<Conceptos>();
+		 log.info("Inicio traza getConceptosPorPago" + codigoCaso);
+		 
 		 Conceptos c= new Conceptos();
 		 Conceptos c2= new Conceptos();
 		 try {
-			 c.setCodigo_Pago("233");
+			 c.setCodigo_Pago("231");
 		       c.setTipo("Bases");
 		       c.setConcepto("ATC");
 		       c.setDescripcion("ANTICIPOS DE CONTRATO");
@@ -107,6 +117,7 @@ public class ConceptosPorPago {
 		 ips.setDescri_instruccion_pago("");
 		 ips.setNumero_operacion("");
 		 ips.setGmfSugerido("N");
+		 ips.setMensaje("");
 		 
 		 } catch (Exception e) {
 			 throw new GestionPagosException(e.getMessage());
@@ -128,13 +139,14 @@ public class ConceptosPorPago {
 			 ifc.setNombreNegocioGrifus("AMC");
 			 ifc.setUsuarioDirectorGestion("Daniel Manrique");
 			 ifc.setDirectorGestion("SI");
-			 ifc.setAsistenteGestion("Dora");
+			 ifc.setUsuarioAsistenteGestion("AlIANZA");
+			 ifc.setAsistenteGestion("");
 			 ifc.setSaldoTotal("100000000");
 			 ifc.setSaldoCanje("104440");
 			 ifc.setCtrlCancelacion("G");
 			 ifc.setTotalReservado("GA");
 			 ifc.setTotalDisponible("10");
-			 
+			 ifc.setMensaje("");
 			
 		} catch (Exception e) {
 			throw new GestionPagosException(e.getMessage());
