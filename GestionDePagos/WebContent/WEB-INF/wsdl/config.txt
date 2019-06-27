@@ -1,0 +1,25 @@
+colocar en el tag  <GlobalNamingResources> del archivo server.xml
+
+<Resource 
+	auth="Container" 
+	driverClassName="oracle.jdbc.driver.OracleDriver" 
+	global="jdbc/glv" 
+	maxActive="100" 
+	maxIdle="20" 
+	maxWait="10000" 
+	minIdle="5" 
+	name="jdbc/glv" 
+	password="GLVDES" 
+	type="javax.sql.DataSource" 
+	url="jdbc:oracle:thin:@10.10.20.81:1530:orcl" 
+	username="GLVDES" 
+	validationQuery="select * from cargo"/>
+	
+colocar en el tag <context> del archivo context.xml
+	
+<ResourceLink 
+   name="jdbc/glvLocal"
+   global="jdbc/glv"
+    auth="Container"
+    type="javax.sql.DataSource" />
+   

@@ -1,7 +1,10 @@
-package com.alianza.gestionpagos.neg;
+	package com.alianza.gestionpagos.neg;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,48 +14,63 @@ import org.tempuri.InformacionCuentas;
 import org.tempuri.InformacionFideicomisos;
 import org.tempuri.InformacionPagosSIFI;
 
-import com.alianza.gestionpagos.config.BDConexiones;
+import com.alianza.gestionpagos.conexion.ConexionDirecta;
+import com.alianza.gestionpagos.conexion.ConexionType;
 import com.alianza.gestionpagos.exception.GestionPagosException;
+
+import oracle.jdbc.OracleTypes;
 
 public class ConceptosPorPago {
 
 	 private static final Logger log = LogManager.getLogger(GestionDePagosSoapImpl.class.getName());
 	 
-	 BDConexiones BD = new BDConexiones();
-	 
 	 public org.tempuri.Conceptos[] getConceptosPorPago(java.lang.String codigoCaso) throws GestionPagosException {
-		 
-		 List<Conceptos> listaConceptos = new ArrayList<Conceptos>();
-		 log.info("Inicio traza getConceptosPorPago" + codigoCaso);
-		 
-		 Conceptos c= new Conceptos();
-		 Conceptos c2= new Conceptos();
+		 log.debug("inicio del metodo getConceptosPorPago");
+		 Conceptos[] list ;
+		 ArrayList<Conceptos> listConceptos;
+		 Connection con=null;
+		 CallableStatement stmt=null;
+		 ResultSet rs=null;
 		 try {
-			 c.setCodigo_Pago("231");
-		       c.setTipo("Bases");
-		       c.setConcepto("ATC");
-		       c.setDescripcion("ANTICIPOS DE CONTRATO");
-		       c.setBase("23483127");
-		       c.setValor("23483127");
-		       
-		       
-		       c2.setCodigo_Pago("233");
-		       c2.setTipo("Bases");
-		       c2.setConcepto("ATC");
-		       c2.setDescripcion("ANTICIPOS DE CONTRATO");
-		       c2.setBase("23483127");
-		       c2.setValor("23483127");
-		
-		       
-	     }catch (Exception e) {
-			throw new GestionPagosException(e.getMessage());
-		}
+			 con= ConexionDirecta.getConexion(ConexionType.JDNI_PRUEBA);
+			 stmt = con.prepareCall("BEGIN prueba(?, ?); END;");
+			 stmt.setString(1,"BATCH");
+			 stmt.registerOutParameter(2, OracleTypes.CURSOR); 
+			 stmt.execute();
+			 rs = (ResultSet)stmt.getObject(2);
+			 listConceptos= new ArrayList<Conceptos>();
+			 while (rs.next()) {
+		    	 Conceptos c= new Conceptos();
+					String codigoComprobante=rs.getString("PAR_VALOR");
+					String descripcion=rs.getString("PAR_PARAMETRO");
+					   c.setCodigo_Pago("233");
+				       c.setTipo("Bases");
+				       c.setConcepto(codigoComprobante);
+				       c.setDescripcion(descripcion);
+				       c.setBase("23483127");
+				       c.setValor("23483127");
+				       listConceptos.add(c);
+		       }
+			 list= listConceptos.toArray(new Conceptos[listConceptos.size()]);
+		 }catch (SQLException e1) {
+				throw new GestionPagosException(e1.getMessage());
+			}catch(GestionPagosException e) {
+				throw new GestionPagosException(e.getMessage());
+			}catch (Exception e) {
+				throw new GestionPagosException(e.getMessage());
+			}finally {
+				try {
+					rs.close();
+					stmt.close();
+					con.close();
+				}catch (SQLException e) {
+					throw new GestionPagosException(e.getMessage());
+				}
+				
+			}
+			 log.debug("finalizando metodo getConceptosPorPago");
+		    	return list;
 		 
-		 log.debug("Finaliza correctamente el proceso");
-	    	
-	   
-	       Conceptos[] list = new Conceptos[]{c,c2}; 
-	    	return list;
 	    }
 	 
 	 
@@ -117,7 +135,6 @@ public class ConceptosPorPago {
 		 ips.setDescri_instruccion_pago("");
 		 ips.setNumero_operacion("");
 		 ips.setGmfSugerido("N");
-		 ips.setMensaje("");
 		 
 		 } catch (Exception e) {
 			 throw new GestionPagosException(e.getMessage());
@@ -139,14 +156,13 @@ public class ConceptosPorPago {
 			 ifc.setNombreNegocioGrifus("AMC");
 			 ifc.setUsuarioDirectorGestion("Daniel Manrique");
 			 ifc.setDirectorGestion("SI");
-			 ifc.setUsuarioAsistenteGestion("AlIANZA");
-			 ifc.setAsistenteGestion("");
+			 ifc.setAsistenteGestion("Dora");
 			 ifc.setSaldoTotal("100000000");
 			 ifc.setSaldoCanje("104440");
 			 ifc.setCtrlCancelacion("G");
 			 ifc.setTotalReservado("GA");
 			 ifc.setTotalDisponible("10");
-			 ifc.setMensaje("");
+			 
 			
 		} catch (Exception e) {
 			throw new GestionPagosException(e.getMessage());
