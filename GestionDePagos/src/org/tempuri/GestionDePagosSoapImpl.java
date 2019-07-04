@@ -14,6 +14,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.alianza.gestionpagos.exception.GestionPagosException;
 import com.alianza.gestionpagos.neg.ConceptosPorPago;
+import com.alianza.gestionpagos.neg.InformacionCuenta;
+import com.alianza.gestionpagos.neg.InformacionFideicomiso;
+import com.alianza.gestionpagos.neg.InformacionPagos;
 
 public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
 	
@@ -21,20 +24,21 @@ public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
 	 
     public org.tempuri.InformacionFideicomisos[] getInformacionFideicomisos(java.lang.String fideicomiso) throws java.rmi.RemoteException {
        try {
-		return new ConceptosPorPago().getInformacionFideicomisos(fideicomiso);
+		return new InformacionFideicomiso().getInformacionFideicomisos(fideicomiso);
 	} catch (GestionPagosException e) {
 		throw new RemoteException(e.getMessage());
 	}
-    
     }
 
+    
     public java.lang.String setAplicaPagos(java.lang.String fideicomiso, java.lang.String operacion, java.lang.String identificacion, java.lang.String instruccion, java.lang.String accion, java.lang.String usuario, java.lang.String gmf, java.lang.String causalRechazo) throws java.rmi.RemoteException {
         return null;
     }
+    
 
     public org.tempuri.InformacionPagosSIFI[] getInformacionPagos(java.lang.String numeroCasoBizagi) throws java.rmi.RemoteException {
         try {
-			return new ConceptosPorPago().getInformacionPagos(numeroCasoBizagi);
+			return new InformacionPagos().getInformacionPagos(numeroCasoBizagi);
 		} catch (GestionPagosException e) {
 			throw new RemoteException(e.getMessage());
 		}
@@ -42,7 +46,7 @@ public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
 
     public org.tempuri.InformacionCuentas[] getInformacionCuentas(java.lang.String p_fideicomiso) throws java.rmi.RemoteException {
        try {
-		return new ConceptosPorPago().getInformacionCuentas(p_fideicomiso);
+   		return new InformacionCuenta().getInformacionCuentas(p_fideicomiso) ;
 	} catch (GestionPagosException e) {
 		throw new RemoteException(e.getMessage());
 	}
