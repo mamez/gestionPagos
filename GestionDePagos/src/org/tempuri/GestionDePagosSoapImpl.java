@@ -18,7 +18,7 @@ import com.alianza.gestionpagos.neg.InformacionCuenta;
 import com.alianza.gestionpagos.neg.InformacionFideicomiso;
 import com.alianza.gestionpagos.neg.InformacionPagos;
 
-public class GestionDePagosSoapImpl implements org.tempuri.GestionDePagosSoap{
+public class GestionDePagosSoapImpl  implements org.tempuri.GestionDePagosSoap{
 	
 	 private static final Logger log = LogManager.getLogger(GestionDePagosSoapImpl.class.getName());
 	 
