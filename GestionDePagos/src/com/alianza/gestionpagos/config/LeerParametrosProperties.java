@@ -39,7 +39,7 @@ public class LeerParametrosProperties {
 
         } catch (IOException e) {
 
-            log.error("No se encontr贸 el archivo properties, verifique el nombre y la ubicaci贸n - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
+            log.error("No se encontra el archivo properties, verifique el nombre y la ubicaci髇 - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
 
         }
 
@@ -70,7 +70,7 @@ public class LeerParametrosProperties {
 
         } catch (IOException e) {
 
-            log.error("No se pudo cerrar el input, el cual lee los parametros de conexi贸n del .properties - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
+            log.error("No se pudo cerrar el input, el cual lee los parametros de conexi髇 del .properties - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
 
         }
 
@@ -78,7 +78,7 @@ public class LeerParametrosProperties {
     }
 
     /**
-     * Getter getLeerParametrosProperties: Recibe un par谩metro de tipo String el
+     * Getter getLeerParametrosProperties: Recibe un parametro de tipo String el
      * cual hace referencia a la propiedad del archivo proterties que se quiere
      * retornar
      *
@@ -104,7 +104,7 @@ public class LeerParametrosProperties {
 
         } catch (IOException e) {
 
-            log.error("No se encontr贸 el archivo properties, verifique el nombre y la ubicaci贸n - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
+            log.error("No se encontra el archivo properties, verifique el nombre y la ubicaci髇 - " + e + " - " + e.getMessage() + " - " + LeerParametrosProperties.class.getName());
 
         }
 

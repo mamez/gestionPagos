@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.alianza.gestionpagos.exception.GestionPagosException;
+import com.alianza.gestionpagos.neg.AplicaPagos;
 import com.alianza.gestionpagos.neg.ConceptosPorPago;
 import com.alianza.gestionpagos.neg.InformacionCuenta;
 import com.alianza.gestionpagos.neg.InformacionFideicomiso;
@@ -32,7 +33,21 @@ public class GestionDePagosSoapImpl  implements org.tempuri.GestionDePagosSoap{
 
     
     public java.lang.String setAplicaPagos(java.lang.String fideicomiso, java.lang.String operacion, java.lang.String identificacion, java.lang.String instruccion, java.lang.String accion, java.lang.String usuario, java.lang.String gmf, java.lang.String causalRechazo) throws java.rmi.RemoteException {
-        return null;
+        
+    	try {
+    		String mensaje = "";
+    		AplicaPagos ap = new AplicaPagos();
+			String usuarioEncontrado = ap.ConsultaUsuarioSIFI(usuario);
+			if (usuarioEncontrado != "") {
+				 mensaje = ap.setAplicaPagos(fideicomiso, operacion, identificacion, instruccion, accion, usuario, gmf, causalRechazo);
+			}
+			else {
+				 mensaje = "El usuario no existe en SIFI o no esta Activo";
+			}
+			return mensaje;
+		} catch (GestionPagosException e) {
+			throw new RemoteException(e.getMessage());
+		}
     }
     
 

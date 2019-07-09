@@ -35,6 +35,7 @@ public class InformacionFideicomiso {
 			stmt.setString(1, fideicomiso);
 			stmt.registerOutParameter(2, OracleTypes.CURSOR);
 			stmt.execute();
+			System.out.println("paso 1");
 			rs = (ResultSet)stmt.getObject(2);
 			listInformacionFideicomisos = new ArrayList<InformacionFideicomisos>();
 			while (rs.next()) {
@@ -56,6 +57,7 @@ public class InformacionFideicomiso {
 				ifc.setTotalDisponible(rs.getString(15));
 				ifc.setMensaje("");
 				listInformacionFideicomisos.add(ifc);
+				System.out.println("paso 2");
 			}
 			list = listInformacionFideicomisos.toArray(new InformacionFideicomisos[listInformacionFideicomisos.size()]);
 		}

@@ -9,11 +9,9 @@ public class GestionPagosException extends Exception {
 	
 	 private static final Logger log = LogManager.getLogger(GestionPagosException.class.getName());
 		
-	
-	public GestionPagosException(String msg){
-		super(msg);
+	 public GestionPagosException(String msg){
+	 	super(msg);
 		log.error("Error controlado: "+msg);
 	}
-	
-	
 }
+
